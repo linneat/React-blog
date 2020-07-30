@@ -9,8 +9,12 @@ export default class HomePage extends Component {
     this.state = {
       error: undefined,
       articles: undefined,
+      showArticle: undefined,
+      id: undefined,
     };
   }
+
+
 
   componentDidMount() {
     let url = "http://localhost:3000/articles.json";
@@ -48,13 +52,14 @@ export default class HomePage extends Component {
               {this.state.articles.map((item, index) => {
                 return (
                   <li key={index}>
-                    {item.title} {item.text}
+                    {item.title} {item.text} <span><Link to={"/show-article/" +  item.id}>show article</Link></span>
                   </li>
                 );
               })}
             </ul>
+      
 
-            <Link to={"/articlenew"} className="buttonHomePage">
+            <Link to={"/new-article"} className="buttonHomePage">
               <button className="buttonClass">Write new article</button>
             </Link>
           </div>
