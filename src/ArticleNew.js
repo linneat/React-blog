@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router";
 
 export default class ArticleNew extends Component {
   constructor(props) {
@@ -6,7 +7,7 @@ export default class ArticleNew extends Component {
     this.state = {
       title: "",
       text: "",
-      post: false,
+      id: undefined,
     };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
@@ -17,50 +18,73 @@ export default class ArticleNew extends Component {
     this.setState({
       title: event.target.value,
     });
-    console.log(this.state.title);
   }
 
-  handleChangeText(event){
-      this.setState({
-        text: event.target.value,
-      });
+  handleChangeText(event) {
+    this.setState({
+      text: event.target.value,
+    });
   }
 
   postArticle() {
-    this.setState({post: true });
+    let url = "http://localhost:3000/articles.json";
+    let data = {
+      article: {
+        title: this.state.title,
+        text: this.state.text,
+      },
+    };
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({
+          id: response.id,
+        });
+      });
   }
   render() {
-    return (
-      <div className="articleNewPageWrap">
-        <h1 className="heading">New article</h1>
-        <div className="newArticleWrap">
-          <label className="inputLabel">
-            Title:
-            <input
-              type="text"
-              name="title"
-              value={this.state.title}
-              onChange={this.handleChangeTitle}
-              placeholder="title"
-            />
-          </label>
-          <label className="inputLabel">
-            Text:
-            <input
-              type="text"
-              name="text"
-              value={this.state.text}
-              onChange={this.handleChangeText}
-              placeholder="text"
-            />
-          </label>
-          <div className="postButton">
-            <button className="button" onClick={this.postArticle}>
-              Post
-            </button>
+    if (this.state.id !== undefined) {
+      return (<Redirect to={"/show-article/" + this.state.id} />);
+    } else {
+      return (
+        <div className="articleNewPageWrap">
+          <h1 className="heading">New article</h1>
+          <div className="newArticleWrap">
+            <label className="inputLabel">
+              Title:
+              <input
+                type="text"
+                name="title"
+                value={this.state.title}
+                onChange={this.handleChangeTitle}
+                placeholder="title"
+              />
+            </label>
+            <label className="inputLabel">
+              Text:
+              <input
+                type="text"
+                name="text"
+                value={this.state.text}
+                onChange={this.handleChangeText}
+                placeholder="text"
+              />
+            </label>
+            <div className="postButton">
+              <button className="button" onClick={this.postArticle}>
+                Create article
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }

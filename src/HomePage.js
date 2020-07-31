@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ArticleNew from "./ArticleNew";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -13,8 +12,6 @@ export default class HomePage extends Component {
       id: undefined,
     };
   }
-
-
 
   componentDidMount() {
     let url = "http://localhost:3000/articles.json";
