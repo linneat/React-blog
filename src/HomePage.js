@@ -14,7 +14,8 @@ export default class HomePage extends Component {
   }
 
   componentDidMount() {
-    let url = "http://localhost:3000/articles.json";
+    let baseUrl = "https://boiling-peak-38811.herokuapp.com"
+    let url = baseUrl + "/articles.json";
 
     fetch(url)
       .then((response) => response.json())

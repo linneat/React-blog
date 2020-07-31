@@ -12,7 +12,8 @@ export default class ArticleShow extends Component {
   }
 
   componentDidMount() {
-    let url = "http://localhost:3000/articles/" + this.state.id + ".json";
+    let baseUrl = "https://boiling-peak-38811.herokuapp.com"
+    let url = baseUrl + "/articles/" + this.state.id + ".json";
 
     fetch(url)
       .then((response) => response.json())
