@@ -27,8 +27,13 @@ export default class ArticleNew extends Component {
   }
 
   postArticle() {
-    let baseUrl = "https://boiling-peak-38811.herokuapp.com"
+    let baseUrl = "https://boiling-peak-38811.herokuapp.com";
+    if (process.env.REACT_APP_API_URL !== undefined) {
+      baseUrl = process.env.REACT_APP_API_URL.trim();
+    }
+
     let url = baseUrl + "/articles.json";
+
     let data = {
       article: {
         title: this.state.title,

@@ -14,7 +14,10 @@ export default class HomePage extends Component {
   }
 
   componentDidMount() {
-    let baseUrl = "https://boiling-peak-38811.herokuapp.com"
+    let baseUrl = "https://boiling-peak-38811.herokuapp.com";
+    if (process.env.REACT_APP_API_URL !== undefined) {
+      baseUrl = process.env.REACT_APP_API_URL.trim();
+    }
     let url = baseUrl + "/articles.json";
 
     fetch(url)
@@ -50,12 +53,14 @@ export default class HomePage extends Component {
               {this.state.articles.map((item, index) => {
                 return (
                   <li key={index}>
-                    {item.title} {item.text} <span><Link to={"/show-article/" +  item.id}>show article</Link></span>
+                    {item.title} {item.text}{" "}
+                    <span>
+                      <Link to={"/show-article/" + item.id}>show article</Link>
+                    </span>
                   </li>
                 );
               })}
             </ul>
-      
 
             <Link to={"/new-article"} className="buttonHomePage">
               <button className="buttonClass">Write new article</button>

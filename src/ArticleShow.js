@@ -12,7 +12,11 @@ export default class ArticleShow extends Component {
   }
 
   componentDidMount() {
-    let baseUrl = "https://boiling-peak-38811.herokuapp.com"
+    let baseUrl = "https://boiling-peak-38811.herokuapp.com";
+    if (process.env.REACT_APP_API_URL !== undefined) {
+      baseUrl = process.env.REACT_APP_API_URL.trim();
+    }
+
     let url = baseUrl + "/articles/" + this.state.id + ".json";
 
     fetch(url)
