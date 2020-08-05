@@ -56,6 +56,9 @@ export default class HomePage extends Component {
                     {item.title} {item.text}{" "}
                     <span>
                       <Link to={"/show-article/" + item.id}>show article</Link>
+                    </span><span></span>
+                    <span>
+                      <Link to={"/edit-article/" + item.id}>edit article</Link>
                     </span>
                   </li>
                 );
