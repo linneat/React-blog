@@ -13,6 +13,29 @@ export default class HomePage extends Component {
     };
   }
 
+  delete(id){
+    let baseUrl = "https://boiling-peak-38811.herokuapp.com";
+    if (process.env.REACT_APP_API_URL !== undefined) {
+      baseUrl = process.env.REACT_APP_API_URL.trim();
+    }
+    let url = baseUrl + "/articles/" + id + ".json";
+
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        let articleList = this.state.articles.slice();
+        let articlesUpdate = articleList.filter(article => article.id !== id);
+        this.setState({
+          articles: articlesUpdate,
+        });
+      });
+  }
+  
+
   componentDidMount() {
     let baseUrl = "https://boiling-peak-38811.herokuapp.com";
     if (process.env.REACT_APP_API_URL !== undefined) {
@@ -59,6 +82,9 @@ export default class HomePage extends Component {
                     </span><span></span>
                     <span>
                       <Link to={"/edit-article/" + item.id}>edit article</Link>
+                    </span>
+                    <span>
+                      <button onClick={()=>{this.delete(item.id)}} >delete article</button>
                     </span>
                   </li>
                 );
