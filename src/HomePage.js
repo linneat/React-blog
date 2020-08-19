@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { ListGroup } from "react-bootstrap";
-import {Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -69,41 +69,47 @@ export default class HomePage extends Component {
       );
     } else {
       return (
-        <div className="homePageWrap">
+        <div className="homePageWrap" >
           <h1 className="heading">Posted Articles</h1>
           <div className="listWrap">
             <ul className="list">
               {this.state.articles.map((item, index) => {
                 return (
                   <li key={index} className="listItem">
-                    <hr className="line"></hr>
-                    <span className="itemTitle">{item.title} {' '}</span>
-           
+                    <span className="itemTitle">{item.title} </span>
+
                     <span className="buttonsWrap">
-                      <span className="spaceBetweenLinks">
-                      <Link to={"/show-article/" + item.id}>show article</Link>
-                    </span>{' '}
-                    <span className="spaceBetweenLinks">
-                      <Link to={"/edit-article/" + item.id}>edit article</Link>
+                      <span className="linkInWrap">
+                        <button className="buttonInWrap">
+                          <Link to={"/show-article/" + item.id}>show</Link>
+                        </button>
+                      </span>
+                      <span className="linkInWrap">
+                        <button className="buttonInWrap">
+                          <Link to={"/edit-article/" + item.id}>edit</Link>
+                        </button>
+                      </span>
+                      <span>
+                        <button
+                          className="buttonInWrap"
+                          onClick={() => {
+                            this.delete(item.id);
+                          }}
+                        >
+                          delete
+                        </button>
+                      </span>
                     </span>
-                    <span className="spaceBetweenLinks">
-                      <button
-                        onClick={() => {
-                          this.delete(item.id);
-                        }}
-                      >
-                        delete article
-                      </button>
-                    </span>
-       
-                    </span>
-                  </li> 
+                    <hr className="line"></hr>
+                  </li>
                 );
               })}
             </ul>
           </div>
           <Link to={"/new-article"} className="linkHomePage">
-            <Button variant="outline-success"  className="buttonHomePage">Write new article</Button>
+            <Button variant="outline-success" className="buttonHomePage">
+              Write new article
+            </Button>
           </Link>
         </div>
       );

@@ -3,6 +3,9 @@
 .appWrap{
   font-family: 'Poppins', sans-serif;
   padding: 20px;
+  background-image: url('newspaper.jpg');
+
+  height: 100vh;
 }
 
 .homePageWrap{
@@ -24,32 +27,47 @@
   border-radius: 5px;
   align-self: center;
   margin-top: 3%;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 18%;
+  margin-right: 18%;
   list-style: none;
-  padding-top: 8px;
+  padding-top: 16px;
   padding-bottom: 16px;
 }
 
-
 .itemTitle{
-  
+  font-size: 18px;
+}
+.linkInWrap a{
+  color: rgb(58, 57, 57);
+}
+
+.linkInWrap a:hover{
+  color:white;
+  text-decoration: none;
+ 
+}
+
+.buttonInWrap{
+  color: rgb(58, 57, 57);
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: white;
+  background-color:  rgb(238, 204, 204);
+  border-style: solid;
+  margin-left: 15px;
+}
+
+.buttonInWrap:hover{
+  color: white;
 }
 
 .buttonsWrap{
   position: absolute;
-  right: 12%;
+  right: 19%;
 }
 
-.spaceBetweenLinks{
-  padding-right: 5px;
-  border: blue;
-  border-radius: 5px;
-}
 
-.span.spaceBetweenLinks:a{
-  color: pink;
-}
+
 
 .line{
   border: 0;
@@ -61,8 +79,8 @@
 
  .buttonHomePage.btn{
     border: 2px solid transparent;
-    margin-right: 10%;
-    margin-left: 10%;
+    margin-right: 18%;
+    margin-left: 18%;
     position: relative;
   float: right;
   }
