@@ -13,7 +13,7 @@ export default class HomePage extends Component {
     };
   }
 
-  delete(id){
+  delete(id) {
     let baseUrl = "https://boiling-peak-38811.herokuapp.com";
     if (process.env.REACT_APP_API_URL !== undefined) {
       baseUrl = process.env.REACT_APP_API_URL.trim();
@@ -25,16 +25,14 @@ export default class HomePage extends Component {
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then((response) => {
-        let articleList = this.state.articles.slice();
-        let articlesUpdate = articleList.filter(article => article.id !== id);
-        this.setState({
-          articles: articlesUpdate,
-        });
+    }).then((response) => {
+      let articleList = this.state.articles.slice();
+      let articlesUpdate = articleList.filter((article) => article.id !== id);
+      this.setState({
+        articles: articlesUpdate,
       });
+    });
   }
-  
 
   componentDidMount() {
     let baseUrl = "https://boiling-peak-38811.herokuapp.com";
@@ -69,32 +67,37 @@ export default class HomePage extends Component {
       );
     } else {
       return (
-        <div className="appWrap">
-          <div className="homePageWrap">
-            <h1 className="heading">Posted Articles</h1>
-            <ul>
-              {this.state.articles.map((item, index) => {
-                return (
-                  <li key={index}>
-                    {item.title} {item.text}{" "}
-                    <span>
-                      <Link to={"/show-article/" + item.id}>show article</Link>
-                    </span><span></span>
-                    <span>
-                      <Link to={"/edit-article/" + item.id}>edit article</Link>
-                    </span>
-                    <span>
-                      <button onClick={()=>{this.delete(item.id)}} >delete article</button>
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
+        <div className="homePageWrap">
+          <h1 className="heading">Posted Articles</h1>
+          <ul>
+            {this.state.articles.map((item, index) => {
+              return (
+                <li key={index}>
+                  {item.title} {item.text}{" "}
+                  <span>
+                    <Link to={"/show-article/" + item.id}>show article</Link>
+                  </span>
+                  <span></span>
+                  <span>
+                    <Link to={"/edit-article/" + item.id}>edit article</Link>
+                  </span>
+                  <span>
+                    <button
+                      onClick={() => {
+                        this.delete(item.id);
+                      }}
+                    >
+                      delete article
+                    </button>
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
 
-            <Link to={"/new-article"} className="buttonHomePage">
-              <button className="buttonClass">Write new article</button>
-            </Link>
-          </div>
+          <Link to={"/new-article"} className="buttonHomePage">
+            <button className="buttonClass">Write new article</button>
+          </Link>
         </div>
       );
     }

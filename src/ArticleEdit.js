@@ -38,9 +38,8 @@ export default class ArticleEdit extends Component {
     let url = baseUrl + "/articles/" + this.state.id + ".json";
 
     let data = {
-      article: this.state.article
+      article: this.state.article,
     };
-
 
     fetch(url, {
       method: "PATCH",
@@ -52,7 +51,7 @@ export default class ArticleEdit extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({
-            showArticle: true
+          showArticle: true,
         });
       });
   }
@@ -81,10 +80,9 @@ export default class ArticleEdit extends Component {
       );
   }
   render() {
-      if(this.state.showArticle){
-        return (<Redirect to={"/show-article/" + this.state.id} />);
-      }
-    else if (this.state.error) {
+    if (this.state.showArticle) {
+      return <Redirect to={"/show-article/" + this.state.id} />;
+    } else if (this.state.error) {
       return <div>an error occured: {this.state.error}</div>;
     } else if (this.state.article === undefined) {
       return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import HomeRouting from './HomeRouting';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
