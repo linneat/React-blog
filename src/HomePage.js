@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { ListGroup } from "react-bootstrap";
+import {Button} from "react-bootstrap";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -69,34 +71,39 @@ export default class HomePage extends Component {
       return (
         <div className="homePageWrap">
           <h1 className="heading">Posted Articles</h1>
-          <ul>
-            {this.state.articles.map((item, index) => {
-              return (
-                <li key={index}>
-                  {item.title} {item.text}{" "}
-                  <span>
-                    <Link to={"/show-article/" + item.id}>show article</Link>
-                  </span>
-                  <span></span>
-                  <span>
-                    <Link to={"/edit-article/" + item.id}>edit article</Link>
-                  </span>
-                  <span>
-                    <button
-                      onClick={() => {
-                        this.delete(item.id);
-                      }}
-                    >
-                      delete article
-                    </button>
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-
-          <Link to={"/new-article"} className="buttonHomePage">
-            <button className="buttonClass">Write new article</button>
+          <div className="listWrap">
+            <ul className="list">
+              {this.state.articles.map((item, index) => {
+                return (
+                  <li key={index} className="listItem">
+                    <hr className="line"></hr>
+                    <span className="itemTitle">{item.title} {' '}</span>
+           
+                    <span className="buttonsWrap">
+                      <span className="spaceBetweenLinks">
+                      <Link to={"/show-article/" + item.id}>show article</Link>
+                    </span>{' '}
+                    <span className="spaceBetweenLinks">
+                      <Link to={"/edit-article/" + item.id}>edit article</Link>
+                    </span>
+                    <span className="spaceBetweenLinks">
+                      <button
+                        onClick={() => {
+                          this.delete(item.id);
+                        }}
+                      >
+                        delete article
+                      </button>
+                    </span>
+       
+                    </span>
+                  </li> 
+                );
+              })}
+            </ul>
+          </div>
+          <Link to={"/new-article"} className="linkHomePage">
+            <Button variant="outline-success"  className="buttonHomePage">Write new article</Button>
           </Link>
         </div>
       );

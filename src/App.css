@@ -6,7 +6,6 @@
 }
 
 .homePageWrap{
-
   min-width: 100vw;
   display: flex;
   flex-direction: column;
@@ -16,4 +15,66 @@
 .heading{
   text-align: center;
   font-size: 40px;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.list{
+  background-color: rgb(238, 204, 204);
+  border-radius: 5px;
+  align-self: center;
+  margin-top: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
+  list-style: none;
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
+
+
+.itemTitle{
+  
+}
+
+.buttonsWrap{
+  position: absolute;
+  right: 12%;
+}
+
+.spaceBetweenLinks{
+  padding-right: 5px;
+  border: blue;
+  border-radius: 5px;
+}
+
+.span.spaceBetweenLinks:a{
+  color: pink;
+}
+
+.line{
+  border: 0;
+  background-color: rgb(168, 167, 167);
+  height: 1.5px;
+  cursor: pointer;
+  margin-right:6%;
+  }
+
+ .buttonHomePage.btn{
+    border: 2px solid transparent;
+    margin-right: 10%;
+    margin-left: 10%;
+    position: relative;
+  float: right;
+  }
+
+.buttonHomePage.btn-outline-success{
+  color: rgb(238, 204, 204);
+  border-color:  rgb(238, 204, 204);
+  font-weight: 600;
+}
+
+.buttonHomePage.btn-outline-success:hover{
+  background-color: rgb(238, 204, 204); 
+  border-color: rgb(238, 204, 204);
+  color: white;
 }
