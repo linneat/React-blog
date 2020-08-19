@@ -3,8 +3,11 @@
 .appWrap{
   font-family: 'Poppins', sans-serif;
   padding: 20px;
-  background-image: url('newspaper.jpg');
-
+  background: url('newspaper.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   height: 100vh;
 }
 
@@ -16,8 +19,10 @@
 }
 
 .heading{
+  color: rgb(238, 204, 204);
+  font-weight: bold;
   text-align: center;
-  font-size: 40px;
+  font-size: 54px;
   margin-top: 2%;
   margin-bottom: 3%;
 }
@@ -51,7 +56,7 @@
   color: rgb(58, 57, 57);
   border-radius: 5px;
   border-width: 2px;
-  border-color: white;
+  border-color: rgb(145, 145, 145);
   background-color:  rgb(238, 204, 204);
   border-style: solid;
   margin-left: 15px;
