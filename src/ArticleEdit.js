@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import {Button} from "react-bootstrap";
 
 export default class ArticleEdit extends Component {
   constructor(props) {
@@ -116,9 +117,9 @@ export default class ArticleEdit extends Component {
               />
             </label>
             <div className="postButton">
-              <button className="button" onClick={this.postArticle}>
+              <Button variant="outline-success" className="saveButton" onClick={this.postArticle}>
                 Save article
-              </button>
+              </Button>
             </div>
           </div>
         </div>

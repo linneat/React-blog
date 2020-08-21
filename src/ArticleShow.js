@@ -46,10 +46,10 @@ export default class ArticleShow extends Component {
       );
     } else {
       return (
-        <div className="appWrap">
+        <div>
           <div className="homePageWrap">
             <h1 className="heading">{this.state.article.title}</h1>
-            <div>{this.state.article.text}</div>
+            <div className="articleShow">{this.state.article.text}</div>
           </div>
         </div>
       );

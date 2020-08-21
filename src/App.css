@@ -1,24 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 
-.appWrap{
-  font-family: 'Poppins', sans-serif;
+.appWrap {
+  font-family: "Poppins", sans-serif;
   padding: 20px;
-  background: url('newspaper.jpg') no-repeat center center fixed;
+  background: url("newspaper.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.homePageWrap{
-  min-width: 100vw;
+.homePageWrap {
   display: flex;
   flex-direction: column;
-
 }
 
-.heading{
+.heading {
   color: rgb(238, 204, 204);
   font-weight: bold;
   text-align: center;
@@ -27,77 +25,116 @@
   margin-bottom: 3%;
 }
 
-.list{
+.list {
   background-color: rgb(238, 204, 204);
   border-radius: 5px;
   align-self: center;
   margin-top: 3%;
-  margin-left: 18%;
-  margin-right: 18%;
+  margin-left: 16%;
+  margin-right: 16%;
   list-style: none;
   padding-top: 16px;
   padding-bottom: 16px;
 }
 
-.itemTitle{
+.listItem{
+  padding-right: 5%;
+}
+
+.itemTitle {
   font-size: 18px;
 }
-.linkInWrap a{
+.linkInWrap a {
   color: rgb(58, 57, 57);
 }
 
-.linkInWrap a:hover{
-  color:white;
+.linkInWrap a:hover {
+  color: white;
   text-decoration: none;
- 
 }
 
-.buttonInWrap{
+.buttonInWrap {
   color: rgb(58, 57, 57);
   border-radius: 5px;
   border-width: 2px;
   border-color: rgb(145, 145, 145);
-  background-color:  rgb(238, 204, 204);
+  background-color: rgb(238, 204, 204);
   border-style: solid;
   margin-left: 15px;
 }
 
-.buttonInWrap:hover{
+.buttonInWrap:hover {
   color: white;
 }
 
-.buttonsWrap{
+.buttonsWrap {
   position: absolute;
   right: 19%;
 }
 
-
-
-
-.line{
+.line {
   border: 0;
   background-color: rgb(168, 167, 167);
   height: 1.5px;
   cursor: pointer;
-  margin-right:6%;
-  }
+  margin-right: 6%;
+}
 
- .buttonHomePage.btn{
-    border: 2px solid transparent;
-    margin-right: 18%;
-    margin-left: 18%;
-    position: relative;
+.buttonHomePage.btn {
+  border: 2px solid transparent;
+  margin-right: 16%;
+  margin-left: 16%;
+  position: relative;
   float: right;
-  }
+}
 
-.buttonHomePage.btn-outline-success{
+.buttonHomePage.btn-outline-success {
   color: rgb(238, 204, 204);
-  border-color:  rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204);
   font-weight: 600;
 }
 
-.buttonHomePage.btn-outline-success:hover{
-  background-color: rgb(238, 204, 204); 
+.buttonHomePage.btn-outline-success:hover {
+  background-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204);
+  color: white;
+}
+
+/* article show */
+
+.articleShow {
+  display: flex;
+  align-self: center;
+  background-color: rgb(238, 204, 204);
+  padding: 3%;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  margin-left: 18%;
+  margin-right: 18%;
+  border-radius: 5px;
+}
+
+
+/* new article*/
+
+.newArticleWrap{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.saveButton.btn {
+  border: 2px solid transparent;
+}
+
+.saveButton.btn-outline-success {
+  color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204);
+  font-weight: 600;
+}
+
+.saveButton.btn-outline-success:hover {
+  background-color: rgb(238, 204, 204);
   border-color: rgb(238, 204, 204);
   color: white;
 }
