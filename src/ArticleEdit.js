@@ -97,8 +97,9 @@ export default class ArticleEdit extends Component {
           <h1 className="heading">Edit article</h1>
           <div className="newArticleWrap">
             <label className="inputLabel">
-              Title:
+              Title: {' '}
               <input
+                className="editInput"
                 type="text"
                 name="title"
                 value={this.state.article.title}
@@ -107,8 +108,9 @@ export default class ArticleEdit extends Component {
               />
             </label>
             <label className="inputLabel">
-              Text:
+              Text:{' '}
               <input
+                className="editInput"
                 type="text"
                 name="text"
                 value={this.state.article.text}

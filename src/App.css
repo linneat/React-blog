@@ -37,7 +37,7 @@
   padding-bottom: 16px;
 }
 
-.listItem{
+.listItem {
   padding-right: 5%;
 }
 
@@ -81,7 +81,8 @@
 }
 
 .buttonHomePage.btn {
-  border: 2px solid transparent;
+  border: 2px solid;
+  background-color: rgba(100, 99, 99, 0.3);
   margin-right: 16%;
   margin-left: 16%;
   position: relative;
@@ -114,17 +115,18 @@
   border-radius: 5px;
 }
 
-
 /* new article*/
 
-.newArticleWrap{
+.newArticleWrap {
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-top: 5%;
 }
 
 .saveButton.btn {
-  border: 2px solid transparent;
+  border: 2px solid;
+  background-color: rgba(100, 99, 99, 0.3);
 }
 
 .saveButton.btn-outline-success {
@@ -137,4 +139,14 @@
   background-color: rgb(238, 204, 204);
   border-color: rgb(238, 204, 204);
   color: white;
+}
+
+.inputLabel {
+  color: rgb(238, 204, 204);
+  font-size: 18px;
+}
+.editInput{
+  border-radius: 5px;
+  border-style: none;
+  min-width: 20%;
 }
