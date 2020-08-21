@@ -192,3 +192,32 @@
   border-color: rgb(238, 204, 204);
   color: white;
 }
+
+
+.saveButtonEdit.btn {
+  border: 2px solid;
+  background-color: rgba(100, 99, 99, 0.3);
+  width: 125px;
+  display: flex;
+  align-self: flex-end;
+}
+
+.saveButtonCreate.btn-outline-success {
+  color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204);
+  font-weight: 600;
+}
+
+.saveButtonCreate.btn-outline-success:hover {
+  background-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204);
+  color: white;
+}
+
+.saveButtonCreate.btn {
+  border: 2px solid;
+  background-color: rgba(100, 99, 99, 0.3);
+  width: 138px;
+  display: flex;
+  align-self: flex-end;
+}

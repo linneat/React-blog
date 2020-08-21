@@ -98,28 +98,34 @@ export default class ArticleEdit extends Component {
           <h1 className="heading">Edit article</h1>
           <div className="newArticleWrap">
             <Form className="form">
-            <Form.Group controlId="exampleForm.ControlInput1" className="formTopMargin">
-            <Form.Label className="inputTitle"> Title:</Form.Label>
-             
-            <Form.Control className="editInputTitle" type="text" placeholder="title" value={this.state.article.title}
-                  onChange={this.handleChangeTitle} />
-            
+              <Form.Group controlId="exampleForm.ControlInput1" className="formTopMargin">
+                <Form.Label className="inputTitle"> Title:</Form.Label>
+
+                <Form.Control
+                  className="editInputTitle"
+                  type="text"
+                  placeholder="title"
+                  value={this.state.article.title}
+                  onChange={this.handleChangeTitle}
+                />
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlTextarea1" className="textWrap">
                 <Form.Label className="inputText">Text:</Form.Label>
 
-                <Form.Control className="editInputText" as="textarea" rows="7" value={this.state.article.text}
+                <Form.Control
+                  className="editInputText"
+                  as="textarea"
+                  rows="7"
+                  value={this.state.article.text}
                   onChange={this.handleChangeText}
-                  placeholder="text"/>
-               
+                  placeholder="text"
+                />
               </Form.Group>
-              <Button variant="outline-success" className="saveButtonEdit"  onClick={this.postArticle}>
+              <Button variant="outline-success" className="saveButtonEdit" onClick={this.postArticle}>
                 Save article
               </Button>
             </Form>
-            <div className="postButton">
-            
-            </div>
+            <div className="postButton"></div>
           </div>
         </div>
       );

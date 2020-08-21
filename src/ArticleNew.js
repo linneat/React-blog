@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
+import { Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 export default class ArticleNew extends Component {
   constructor(props) {
@@ -57,37 +59,41 @@ export default class ArticleNew extends Component {
   }
   render() {
     if (this.state.id !== undefined) {
-      return (<Redirect to={"/show-article/" + this.state.id} />);
+      return <Redirect to={"/show-article/" + this.state.id} />;
     } else {
       return (
         <div className="articleNewPageWrap">
           <h1 className="heading">New article</h1>
           <div className="newArticleWrap">
-            <label className="inputLabel">
-              Title:
-              <input
-                type="text"
-                name="title"
-                value={this.state.title}
-                onChange={this.handleChangeTitle}
-                placeholder="title"
-              />
-            </label>
-            <label className="inputLabel">
-              Text:
-              <input
-                type="text"
-                name="text"
-                value={this.state.text}
-                onChange={this.handleChangeText}
-                placeholder="text"
-              />
-            </label>
-            <div className="postButton">
-              <button className="button" onClick={this.postArticle}>
-                Create article
-              </button>
-            </div>
+            <Form className="form">
+              <Form.Group controlId="exampleForm.ControlInput1" className="formTopMargin">
+                <Form.Label className="inputTitle"> Title:</Form.Label>
+                <Form.Control
+                  className="editInputTitle"
+                  type="text"
+                  placeholder="title"
+                  value={this.state.title}
+                  onChange={this.handleChangeTitle}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlTextarea1" className="textWrap">
+                <Form.Label className="inputText">Text:</Form.Label>
+
+                <Form.Control
+                  className="editInputText"
+                  as="textarea"
+                  rows="7"
+                  value={this.state.text}
+                  onChange={this.handleChangeText}
+                  placeholder="text"
+                />
+              </Form.Group>
+            
+                <Button variant="outline-success" className="saveButtonCreate" onClick={this.postArticle}>
+                  Create article
+                </Button>
+       
+            </Form>
           </div>
         </div>
       );
