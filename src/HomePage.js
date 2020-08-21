@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { ListGroup } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import * as ReactBootStrap from "react-bootstrap";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -63,7 +63,8 @@ export default class HomePage extends Component {
       return <div>an error occured: {this.state.error}</div>;
     } else if (this.state.articles === undefined) {
       return (
-        <div>
+        <div className="loading">
+          <ReactBootStrap.Spinner animation="border" />
           <div>loading articles...</div>
         </div>
       );

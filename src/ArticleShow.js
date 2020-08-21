@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faAngleLeft} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import * as ReactBootStrap from "react-bootstrap";
 
 export default class ArticleShow extends Component {
   constructor(props) {
@@ -43,7 +44,8 @@ export default class ArticleShow extends Component {
       return <div>an error occured: {this.state.error}</div>;
     } else if (this.state.article === undefined) {
       return (
-        <div>
+        <div className="loading">
+          <ReactBootStrap.Spinner animation="border" />
           <div>loading article...</div>
         </div>
       );
@@ -51,13 +53,19 @@ export default class ArticleShow extends Component {
       return (
         <div>
           <div className="homePageWrap">
-          <span>
-            <Link to="/">
-              <i className="back"><FontAwesomeIcon icon={faAngleLeft} /></i>
-            </Link>
+            <span>
+              <Link to="/">
+                <i className="back">
+                  <FontAwesomeIcon icon={faAngleLeft} />
+                </i>
+              </Link>
             </span>
             <h1 className="heading">{this.state.article.title}</h1>
-            <div className="articleShow">{this.state.article.text}</div>
+            <div className="articleShow">
+              {this.state.article.text.split("\n").map((item, i) => {
+                return <p key={i}>{item}</p>
+              })}
+            </div>
           </div>
         </div>
       );

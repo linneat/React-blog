@@ -5,6 +5,7 @@ import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faAngleLeft} from '@fortawesome/free-solid-svg-icons';
+import * as ReactBootStrap from "react-bootstrap";
 
 
 export default class ArticleEdit extends Component {
@@ -92,7 +93,8 @@ export default class ArticleEdit extends Component {
       return <div>an error occured: {this.state.error}</div>;
     } else if (this.state.article === undefined) {
       return (
-        <div>
+        <div className="loading">
+          <ReactBootStrap.Spinner animation="border" />
           <div>loading article...</div>
         </div>
       );
