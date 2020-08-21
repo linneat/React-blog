@@ -145,8 +145,50 @@
   color: rgb(238, 204, 204);
   font-size: 18px;
 }
-.editInput{
-  border-radius: 5px;
-  border-style: none;
-  min-width: 20%;
+
+
+
+/*edit articke*/
+.inputText{
+  color: rgb(238, 204, 204);
+  font-size: 18px;
+  display: flex;
+}
+
+.inputTitle{
+  color: rgb(238, 204, 204);
+  font-size: 18px;
+  display: flex;
+}
+
+.form{
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+
+.formTopMargin.form-group{
+  margin-bottom: 3.5vw;
+}
+
+.saveButtonEdit.btn {
+  border: 2px solid;
+  background-color: rgba(100, 99, 99, 0.3);
+  width: 125px;
+  display: flex;
+  align-self: flex-end;
+}
+
+.saveButtonEdit.btn-outline-success {
+  color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204);
+  font-weight: 600;
+}
+
+.saveButtonEdit.btn-outline-success:hover {
+  background-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204);
+  color: white;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import {Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 export default class ArticleEdit extends Component {
   constructor(props) {
@@ -96,32 +97,28 @@ export default class ArticleEdit extends Component {
         <div className="articleNewPageWrap">
           <h1 className="heading">Edit article</h1>
           <div className="newArticleWrap">
-            <label className="inputLabel">
-              Title: {' '}
-              <input
-                className="editInput"
-                type="text"
-                name="title"
-                value={this.state.article.title}
-                onChange={this.handleChangeTitle}
-                placeholder="title"
-              />
-            </label>
-            <label className="inputLabel">
-              Text:{' '}
-              <input
-                className="editInput"
-                type="text"
-                name="text"
-                value={this.state.article.text}
-                onChange={this.handleChangeText}
-                placeholder="text"
-              />
-            </label>
-            <div className="postButton">
-              <Button variant="outline-success" className="saveButton" onClick={this.postArticle}>
+            <Form className="form">
+            <Form.Group controlId="exampleForm.ControlInput1" className="formTopMargin">
+            <Form.Label className="inputTitle"> Title:</Form.Label>
+             
+            <Form.Control className="editInputTitle" type="text" placeholder="title" value={this.state.article.title}
+                  onChange={this.handleChangeTitle} />
+            
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlTextarea1" className="textWrap">
+                <Form.Label className="inputText">Text:</Form.Label>
+
+                <Form.Control className="editInputText" as="textarea" rows="7" value={this.state.article.text}
+                  onChange={this.handleChangeText}
+                  placeholder="text"/>
+               
+              </Form.Group>
+              <Button variant="outline-success" className="saveButtonEdit"  onClick={this.postArticle}>
                 Save article
               </Button>
+            </Form>
+            <div className="postButton">
+            
             </div>
           </div>
         </div>
