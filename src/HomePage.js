@@ -70,7 +70,7 @@ export default class HomePage extends Component {
     } else {
       return (
         <div className="homePageWrap" >
-          <h1 className="heading">Posted Articles</h1>
+          <h1 className="headingHomePage">Posted Articles</h1>
           <div className="listWrap">
             <ul className="list">
               {this.state.articles.map((item, index) => {

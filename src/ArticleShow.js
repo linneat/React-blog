@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faAngleLeft} from '@fortawesome/free-solid-svg-icons';
 
 export default class ArticleShow extends Component {
   constructor(props) {
@@ -48,6 +51,11 @@ export default class ArticleShow extends Component {
       return (
         <div>
           <div className="homePageWrap">
+          <span>
+            <Link to="/">
+              <i className="back"><FontAwesomeIcon icon={faAngleLeft} /></i>
+            </Link>
+            </span>
             <h1 className="heading">{this.state.article.title}</h1>
             <div className="articleShow">{this.state.article.text}</div>
           </div>

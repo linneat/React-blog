@@ -16,12 +16,21 @@
   flex-direction: column;
 }
 
-.heading {
+.headingHomePage {
   color: rgb(238, 204, 204);
   font-weight: bold;
   text-align: center;
   font-size: 54px;
   margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.heading {
+  color: rgb(238, 204, 204);
+  font-weight: bold;
+  text-align: center;
+  font-size: 54px;
+  margin-top: -4%;
   margin-bottom: 3%;
 }
 
@@ -102,6 +111,21 @@
 }
 
 /* article show */
+.back {
+  position: relative;
+  left: 3vw;
+  text-align: left;
+  top: 4vh;
+  color: rgb(39, 39, 39);
+  font-size: 7vh;
+}
+
+
+.back:hover {
+  color: rgb(182, 182, 182);
+}
+
+
 
 .articleShow {
   display: flex;

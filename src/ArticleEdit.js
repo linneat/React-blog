@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faAngleLeft} from '@fortawesome/free-solid-svg-icons';
+
 
 export default class ArticleEdit extends Component {
   constructor(props) {
@@ -95,6 +99,11 @@ export default class ArticleEdit extends Component {
     } else {
       return (
         <div className="articleNewPageWrap">
+          <div>
+            <Link to="/">
+              <i className="back"><FontAwesomeIcon icon={faAngleLeft} /></i>
+            </Link>
+          </div>
           <h1 className="heading">Edit article</h1>
           <div className="newArticleWrap">
             <Form className="form">
