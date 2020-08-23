@@ -19,16 +19,29 @@ export default class HomePage extends Component {
   }
 
   delete(id) {
+    if (this.state.username === undefined || this.state.password === undefined) {
+      this.setState({
+        redirect: "/login",
+      });
+      return;
+    }
+
     let baseUrl = "https://boiling-peak-38811.herokuapp.com";
     if (process.env.REACT_APP_API_URL !== undefined) {
       baseUrl = process.env.REACT_APP_API_URL.trim();
     }
     let url = baseUrl + "/articles/" + id + ".json";
 
+    let base64 = require("base-64");
+    let username = this.state.username;
+    let password = this.state.password;
+    const basic_auth = "Basic " + base64.encode(username + ":" + password);
+
     fetch(url, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": basic_auth
       },
     }).then((response) => {
       let articleList = this.state.articles.slice();
