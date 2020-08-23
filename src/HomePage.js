@@ -39,6 +39,18 @@ export default class HomePage extends Component {
     });
   }
 
+  editArticle(articleId) {
+    if (this.state.username && this.state.password) {
+      this.setState({
+        redirect: "/edit-article/" + articleId,
+      });
+    } else {
+      this.setState({
+        redirect: "/login",
+      });
+    }
+  }
+
   writeNewArticle() {
     if (this.state.username && this.state.password) {
       this.setState({
@@ -110,8 +122,8 @@ export default class HomePage extends Component {
                         </button>
                       </span>
                       <span className="linkInWrap">
-                        <button className="buttonInWrap">
-                          <Link to={"/edit-article/" + item.id}>edit</Link>
+                        <button className="buttonInWrap" onClick={() => this.editArticle(item.id)}>
+                          edit
                         </button>
                       </span>
                       <span>

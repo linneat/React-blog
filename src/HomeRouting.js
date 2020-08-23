@@ -14,8 +14,8 @@ export default class HomeRouting extends Component {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/new-article" exact component={ArticleNew} />
-            <Route path="/show-article/:id" render={(props) => <ArticleShow id={props.match.params.id} />}></Route>
-            <Route path="/edit-article/:id" render={(props) => <ArticleEdit id={props.match.params.id} />}></Route>
+            <Route path="/show-article/:id" render={(props) => <ArticleShow {...props}  id={props.match.params.id} />}></Route>
+            <Route path="/edit-article/:id" render={(props) => <ArticleEdit {...props}  id={props.match.params.id} />}></Route>
             <Route path="/login" exact component={LogIn}/>
           </Switch>
         </Router>
