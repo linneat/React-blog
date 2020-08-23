@@ -10,6 +10,8 @@ object-assign
   http://jedwatson.github.io/classnames
 */
 
+/*! http://mths.be/base64 v0.1.0 by @mathias | MIT license */
+
 /** @license React v0.19.1
  * scheduler.production.min.js
  *
