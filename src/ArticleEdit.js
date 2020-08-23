@@ -3,10 +3,9 @@ import { Redirect } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faAngleLeft} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import * as ReactBootStrap from "react-bootstrap";
-
 
 export default class ArticleEdit extends Component {
   constructor(props) {
@@ -15,8 +14,8 @@ export default class ArticleEdit extends Component {
       article: undefined,
       id: props.id,
       showArticle: false,
-      username: props.location.state.username,
-      password: props.location.state.password, 
+      username: props.location.state ? props.location.state.username : undefined,
+      password: props.location.state ? props.location.state.password : undefined,
     };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
@@ -60,7 +59,7 @@ export default class ArticleEdit extends Component {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": basic_auth
+        Authorization: basic_auth,
       },
     })
       .then((response) => response.json())
@@ -72,6 +71,10 @@ export default class ArticleEdit extends Component {
   }
 
   componentDidMount() {
+    if (this.state.username === undefined) {
+      return;
+    }
+    
     let baseUrl = "https://boiling-peak-38811.herokuapp.com";
     if (process.env.REACT_APP_API_URL !== undefined) {
       baseUrl = process.env.REACT_APP_API_URL.trim();
@@ -95,7 +98,9 @@ export default class ArticleEdit extends Component {
       );
   }
   render() {
-    if (this.state.showArticle) {
+    if (this.state.username === undefined) {
+      return <Redirect to="/login" />;
+    } else if (this.state.showArticle) {
       return <Redirect to={"/show-article/" + this.state.id} />;
     } else if (this.state.error) {
       return <div>an error occured: {this.state.error}</div>;
@@ -111,7 +116,9 @@ export default class ArticleEdit extends Component {
         <div className="articleNewPageWrap">
           <div>
             <Link to="/">
-              <i className="back"><FontAwesomeIcon icon={faAngleLeft} /></i>
+              <i className="back">
+                <FontAwesomeIcon icon={faAngleLeft} />
+              </i>
             </Link>
           </div>
           <h1 className="heading">Edit article</h1>

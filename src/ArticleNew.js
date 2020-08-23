@@ -3,8 +3,8 @@ import { Redirect } from "react-router";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faAngleLeft} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default class ArticleNew extends Component {
   constructor(props) {
@@ -13,8 +13,8 @@ export default class ArticleNew extends Component {
       title: "",
       text: "",
       id: undefined,
-      username: props.location.state.username,
-      password: props.location.state.password, 
+      username: props.location.state ? props.location.state.username : undefined,
+      password: props.location.state ? props.location.state.password : undefined,
     };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
@@ -58,7 +58,7 @@ export default class ArticleNew extends Component {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": basic_auth
+        Authorization: basic_auth,
       },
     })
       .then((response) => response.json())
@@ -71,15 +71,19 @@ export default class ArticleNew extends Component {
   render() {
     if (this.state.id !== undefined) {
       return <Redirect to={"/show-article/" + this.state.id} />;
+    } else if (this.state.username === undefined) {
+      return <Redirect to="/login" />;
     } else {
       return (
         <div className="articleNewPageWrap">
-           <div>
+          <div>
             <Link to="/">
-              <i className="back"><FontAwesomeIcon icon={faAngleLeft} /></i>
+              <i className="back">
+                <FontAwesomeIcon icon={faAngleLeft} />
+              </i>
             </Link>
           </div>
-          <h1 className="heading" >New article</h1>
+          <h1 className="heading">New article</h1>
           <div className="newArticleWrap">
             <Form className="form">
               <Form.Group controlId="exampleForm.ControlInput1" className="formTopMargin">
@@ -104,11 +108,10 @@ export default class ArticleNew extends Component {
                   placeholder="text"
                 />
               </Form.Group>
-            
-                <Button variant="outline-success" className="saveButtonCreate" onClick={this.postArticle}>
-                  Create article
-                </Button>
-       
+
+              <Button variant="outline-success" className="saveButtonCreate" onClick={this.postArticle}>
+                Create article
+              </Button>
             </Form>
           </div>
         </div>
