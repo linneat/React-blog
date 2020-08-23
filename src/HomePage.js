@@ -1,18 +1,21 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import * as ReactBootStrap from "react-bootstrap";
 
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       error: undefined,
       articles: undefined,
       showArticle: undefined,
       id: undefined,
+      username: props.location.state ? props.location.state.username : undefined,
+      password: props.location.state ? props.location.state.password : undefined,
+      redirect: undefined,
     };
+    this.writeNewArticle = this.writeNewArticle.bind(this);
   }
 
   delete(id) {
@@ -34,6 +37,18 @@ export default class HomePage extends Component {
         articles: articlesUpdate,
       });
     });
+  }
+
+  writeNewArticle() {
+    if (this.state.username && this.state.password) {
+      this.setState({
+        redirect: "/new-article",
+      });
+    } else {
+      this.setState({
+        redirect: "/login",
+      });
+    }
   }
 
   componentDidMount() {
@@ -68,9 +83,18 @@ export default class HomePage extends Component {
           <div>loading articles...</div>
         </div>
       );
+    } else if (this.state.redirect) {
+      return (
+        <Redirect
+          to={{
+            pathname: this.state.redirect,
+            state: { username: this.state.username, password: this.state.password },
+          }}
+        />
+      );
     } else {
       return (
-        <div className="homePageWrap" >
+        <div className="homePageWrap">
           <h1 className="headingHomePage">Posted Articles</h1>
           <div className="listWrap">
             <ul className="list">
@@ -107,11 +131,11 @@ export default class HomePage extends Component {
               })}
             </ul>
           </div>
-          <Link to={"/new-article"} className="linkHomePage">
-            <Button variant="outline-success" className="buttonHomePage">
+          <div className="linkHomePage">
+            <Button variant="outline-success" className="buttonHomePage" onClick={this.writeNewArticle}>
               Write new article
             </Button>
-          </Link>
+          </div>
         </div>
       );
     }

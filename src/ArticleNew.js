@@ -13,6 +13,8 @@ export default class ArticleNew extends Component {
       title: "",
       text: "",
       id: undefined,
+      username: props.location.state.username,
+      password: props.location.state.password, 
     };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
@@ -46,11 +48,17 @@ export default class ArticleNew extends Component {
       },
     };
 
+    let base64 = require("base-64");
+    let username = this.state.username;
+    let password = this.state.password;
+    const basic_auth = "Basic " + base64.encode(username + ":" + password);
+
     fetch(url, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
+        "Authorization": basic_auth
       },
     })
       .then((response) => response.json())
