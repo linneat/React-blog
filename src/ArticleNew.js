@@ -13,7 +13,6 @@ export default class ArticleNew extends Component {
       title: "",
       text: "",
       id: undefined,
-      error: false,
       errorMessage: "",
       username: props.location.state ? props.location.state.username : undefined,
       password: props.location.state ? props.location.state.password : undefined,
@@ -38,7 +37,6 @@ export default class ArticleNew extends Component {
   postArticle() {
     if (this.state.title === "" || this.state.text === "") {
       this.setState({
-        error: true,
         errorMessage: "Please fill out the text fields!",
       });
       return;
@@ -80,7 +78,7 @@ export default class ArticleNew extends Component {
   render() {
     if (this.state.id !== undefined) {
       return <Redirect to={"/show-article/" + this.state.id} />;
-    }else if (this.state.username === undefined) {
+    } else if (this.state.username === undefined) {
       return <Redirect to="/login" />;
     } else {
       return (
@@ -94,7 +92,7 @@ export default class ArticleNew extends Component {
           </div>
           <h1 className="heading">New article</h1>
           <div className="newArticleWrap">
-          <div className="errorMessage">{this.state.errorMessage}</div>
+            <div className="errorMessage">{this.state.errorMessage}</div>
             <Form className="form">
               <Form.Group controlId="exampleForm.ControlInput1" className="formTopMargin">
                 <Form.Label className="inputTitle"> Title:</Form.Label>
