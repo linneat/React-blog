@@ -56,10 +56,12 @@ export default class HomePage extends Component {
     if (this.state.username && this.state.password) {
       this.setState({
         redirect: "/edit-article/" + articleId,
+        redirectState: { username: this.state.username, password: this.state.password }
       });
     } else {
       this.setState({
         redirect: "/login",
+        redirectState: { redirectUrl: "/edit-article/" + articleId }
       });
     }
   }
@@ -68,10 +70,12 @@ export default class HomePage extends Component {
     if (this.state.username && this.state.password) {
       this.setState({
         redirect: "/new-article",
+        redirectState: { username: this.state.username, password: this.state.password }
       });
     } else {
       this.setState({
         redirect: "/login",
+        redirectState: { redirectUrl: "/new-article" }
       });
     }
   }
@@ -113,7 +117,7 @@ export default class HomePage extends Component {
         <Redirect
           to={{
             pathname: this.state.redirect,
-            state: { username: this.state.username, password: this.state.password },
+            state: this.state.redirectState,
           }}
         />
       );

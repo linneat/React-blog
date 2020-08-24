@@ -107,7 +107,11 @@ export default class ArticleEdit extends Component {
   }
   render() {
     if (this.state.username === undefined) {
-      return <Redirect to="/login" />;
+      return <Redirect to={{
+        pathname: "/login",
+        state: { redirectUrl: "/edit-article/"+ this.state.id },
+      }}
+     />;
     } else if (this.state.showArticle) {
       return <Redirect to={"/show-article/" + this.state.id} />;
     } else if (this.state.error) {

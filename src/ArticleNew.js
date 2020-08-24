@@ -79,7 +79,10 @@ export default class ArticleNew extends Component {
     if (this.state.id !== undefined) {
       return <Redirect to={"/show-article/" + this.state.id} />;
     } else if (this.state.username === undefined) {
-      return <Redirect to="/login" />;
+      return <Redirect to={{
+        pathname: "/login",
+        state: { redirectUrl: "/new-article" },
+      }} />;
     } else {
       return (
         <div className="articleNewPageWrap">

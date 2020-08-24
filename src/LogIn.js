@@ -13,6 +13,7 @@ export default class LogIn extends Component {
       username: "",
       password: "",
       redirect: undefined,
+      redirectUrl: props.location.state ? props.location.state.redirectUrl : "/"
     };
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -42,7 +43,7 @@ export default class LogIn extends Component {
       return (
         <Redirect
           to={{
-            pathname: this.state.redirect,
+            pathname: this.state.redirectUrl,
             state: { username: this.state.username, password: this.state.password },
           }}
         />
