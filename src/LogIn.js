@@ -82,7 +82,7 @@ export default class LogIn extends Component {
               </Form.Group>
 
               <Button variant="outline-success" className="saveButtonCreate" onClick={this.logIn}>
-                Log in
+                <div className="centerTextButton">Log in</div>
               </Button>
             </Form>
           </div>

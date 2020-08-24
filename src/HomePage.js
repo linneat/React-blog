@@ -139,7 +139,7 @@ export default class HomePage extends Component {
                           edit
                         </button>
                       </span>
-                      <span>
+                      <span className="linkInWrap">
                         <button
                           className="buttonInWrap"
                           onClick={() => {

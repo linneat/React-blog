@@ -66,7 +66,7 @@
   color: rgb(58, 57, 57);
   border-radius: 5px;
   border-width: 2px;
-  border-color: rgb(145, 145, 145);
+  border-color: rgb(145, 145, 145) !important;
   background-color: rgb(238, 204, 204);
   border-style: solid;
   margin-left: 15px;
@@ -74,6 +74,12 @@
 
 .buttonInWrap:hover {
   color: white;
+}
+
+..buttonInWrap:active {
+  color: white;
+  border-color: rgb(145, 145, 145) !important;
+  border-style: solid;
 }
 
 .buttonsWrap {
@@ -100,16 +106,27 @@
 
 .buttonHomePage.btn-outline-success {
   color: rgb(238, 204, 204);
-  border-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204) !important;
   font-weight: 600;
 }
 
 .buttonHomePage.btn-outline-success:hover {
   background-color: rgb(238, 204, 204);
-  border-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204) !important;
   color: white;
 }
 
+.buttonHomePage.btn-outline-success:active {
+  background-color: rgb(238, 204, 204) !important;
+  border-color: rgb(238, 204, 204) !important;
+  color: white !important;
+}
+
+.buttonHomePage.btn-outline-success:focus {
+  background-color: rgb(238, 204, 204)!important;
+  border-color: rgb(238, 204, 204) !important;
+  color: white !important;
+}
 /* article show */
 .back {
   position: relative;
@@ -162,14 +179,20 @@
 
 .saveButton.btn-outline-success {
   color: rgb(238, 204, 204);
-  border-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204) !important;
   font-weight: 600;
 }
 
 .saveButton.btn-outline-success:hover {
   background-color: rgb(238, 204, 204);
-  border-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204) !important;
   color: white;
+}
+
+.saveButton.btn-outline-success:active {
+  background-color: rgb(238, 204, 204) !important;
+  border-color: rgb(238, 204, 204)!important;
+  color: white !important;
 }
 
 .inputLabel {
@@ -204,26 +227,25 @@
   margin-bottom: 3.5vw;
 }
 
-.saveButtonEdit.btn {
-  border: 2px solid;
-  background-color: rgba(100, 99, 99, 0.3);
-  width: 125px;
-  display: flex;
-  align-self: flex-end;
-}
+
 
 .saveButtonEdit.btn-outline-success {
   color: rgb(238, 204, 204);
-  border-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204) !important;
   font-weight: 600;
 }
 
 .saveButtonEdit.btn-outline-success:hover {
   background-color: rgb(238, 204, 204);
-  border-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204)!important;
   color: white;
 }
 
+.saveButtonEdit.btn-outline-success:active {
+  background-color: rgb(238, 204, 204) !important;
+  border-color: rgb(238, 204, 204) !important;
+  color: white !important;
+}
 
 .saveButtonEdit.btn {
   border: 2px solid;
@@ -235,15 +257,22 @@
 
 .saveButtonCreate.btn-outline-success {
   color: rgb(238, 204, 204);
-  border-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204) !important;
   font-weight: 600;
 }
 
 .saveButtonCreate.btn-outline-success:hover {
   background-color: rgb(238, 204, 204);
-  border-color: rgb(238, 204, 204);
+  border-color: rgb(238, 204, 204)!important;
   color: white;
 }
+
+.saveButtonCreate.btn-outline-success:active {
+  background-color: rgb(238, 204, 204) !important;
+  border-color: rgb(238, 204, 204) !important;
+  color: white !important;
+}
+
 
 .saveButtonCreate.btn {
   border: 2px solid;
@@ -251,4 +280,68 @@
   width: 138px;
   display: flex;
   align-self: flex-end;
+  text-align: center;
+}
+
+.centerTextButton{
+  min-width: 100%;
+  text-align: center;
+}
+
+
+/*Responsive*/
+@media screen and (max-width: 414px) {
+  .headingHomePage {
+    font-size: 10vw;
+    margin-top: 2%;
+    margin-bottom: 6%;
+  }
+
+  .list{
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  ul.list{
+    padding-left: 3%;
+  }
+
+  .itemTitle{
+    font-size: 15px;
+  }
+
+  .buttonInWrap{
+    margin-left: 5px;
+    font-size: 12px;
+  }
+
+  .buttonsWrap{
+    position: absolute;
+    right: 8%;
+  }
+
+  .line{
+    margin-right: 0;
+  }
+
+  .buttonHomePage.btn-outline-success{
+    margin-right: 2%;
+  }
+
+  .heading{
+    font-size: 7vw;
+    margin-top: -8%;
+    margin-bottom: 6%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .articleShow{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .form{
+    width: 80vw;
+  }
 }
