@@ -92,7 +92,7 @@
   background-color: rgb(168, 167, 167);
   height: 1.5px;
   cursor: pointer;
-  margin-right: 6%;
+  margin-right: 2%;
 }
 
 .buttonHomePage.btn {
@@ -126,6 +126,15 @@
   background-color: rgb(238, 204, 204)!important;
   border-color: rgb(238, 204, 204) !important;
   color: white !important;
+}
+
+
+.errorMessage{
+ color: rgb(255 228 168);
+ font-size: 17px;
+ font-weight: bold;
+ margin-top: 3%;
+
 }
 /* article show */
 .back {
