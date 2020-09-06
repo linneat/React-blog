@@ -1,4 +1,4 @@
-### React blog
+## React blog
 
 Blog engine written in React.
 
