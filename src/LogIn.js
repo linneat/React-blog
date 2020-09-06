@@ -13,7 +13,8 @@ export default class LogIn extends Component {
       username: "",
       password: "",
       redirect: undefined,
-      redirectUrl: props.location.state ? props.location.state.redirectUrl : "/"
+      redirectUrl: props.location.state ? props.location.state.redirectUrl : "/",
+      error: "",
     };
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -33,9 +34,40 @@ export default class LogIn extends Component {
   }
 
   logIn() {
-    this.setState({
-      redirect: "/",
-    });
+    let baseUrl = "https://boiling-peak-38811.herokuapp.com";
+    if (process.env.REACT_APP_API_URL !== undefined) {
+      baseUrl = process.env.REACT_APP_API_URL.trim();
+    }
+
+    let url = baseUrl + "/articles/new";
+
+    let base64 = require("base-64");
+    let username = this.state.username;
+    let password = this.state.password;
+    const basic_auth = "Basic " + base64.encode(username + ":" + password);
+
+    fetch(url, {
+      headers: {
+        Authorization: basic_auth,
+      },
+    }).then(
+      (data) => {
+        if (data.status === 401) {
+          this.setState({
+            error: "username and or password are wrong please try again",
+          });
+        } else {
+          this.setState({
+            redirect: true,
+          });
+        }
+      },
+      (error) => {
+        this.setState({
+          error: error.message,
+        });
+      }
+    );
   }
 
   render() {
@@ -59,6 +91,7 @@ export default class LogIn extends Component {
             </Link>
           </div>
           <div className="newArticleWrap">
+            <div>{this.state.error}</div>
             <Form className="form">
               <Form.Group controlId="exampleForm.ControlInput1" className="formTopMargin">
                 <Form.Label className="inputTitle"> Username:</Form.Label>
