@@ -61,7 +61,7 @@ export default class LogIn extends Component {
           <div className="newArticleWrap">
             <Form className="form">
               <Form.Group controlId="exampleForm.ControlInput1" className="formTopMargin">
-                <Form.Label className="inputTitle"> User name:</Form.Label>
+                <Form.Label className="inputTitle"> Username:</Form.Label>
                 <Form.Control
                   className="editInputTitle"
                   type="text"
